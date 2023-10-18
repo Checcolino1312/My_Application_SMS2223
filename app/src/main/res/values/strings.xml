@@ -1,3 +1,33 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">AnimalApp</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="msg_exit">Are you sure to want to exit?</string>
+    <string name="dialog_exit_yes">Yes</string>
+    <string name="dialog_exit_no">No</string>
+    <string name="prompt_email">Email</string>
+    <string name="title_home">Home</string>
+    <string name="title_activity">Activity</string>
+    <string name="title_reminder">Reminder</string>
+    <string name="title_loading">Loading....</string>
+    <string name="not_email_verificated_message_fragment">You\'re almost there, you should have received an email to verify your account. Then you can start using Animal App in all its features.</string>
+    <string name="title_control_email">Check your mailbox</string>
+    <string name="title_send_email_verification">Send verification email</string>
+    <string name="title_profile">Profile</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="text_motivational">"Join to Animal App, create your account"</string>
+    <string name="Not_Registred">"For the privacy of our users, in this all you need is a name, an email address and a password to register and start using Animal App"</string>
+    <string name="msg_accept_privacy1">I\'m agree with the AnimalApp\'s terms of use and privacy policy</string>
+    <string name="verification_email_sent">Verification email sent!</string>
+    <string name="failed_verification_email">Verification email failed!</string>
+    <string-array name="rule">
+        <item>Veterinarian/a</item>
+        <item>Master</item>
+    </string-array>
+    <string name="guest_mode">Animal App welcomes you!You are in guest mode</string>
 </resources>

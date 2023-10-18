@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="account"
+        android:title="account">
+        <Preference
+            android:key="logout"
+            android:title="logout" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="general"
+        android:title="general">
+
+        <Preference
+            android:key="notificationsSetting"
+            android:title="notification" />
+
+
+        <Preference
+            android:key="infoSettings"
+            android:summary="desc"
+            android:title="descr" />
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

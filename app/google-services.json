@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "348648208161",
+    "project_id": "ioandroid-3ed73",
+    "storage_bucket": "ioandroid-3ed73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348648208161:android:21e1fb9e69f22303a17060",
+        "android_client_info": {
+          "package_name": "it.uniba.dib.sms22232"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxFbWmBVZlhcebG0wlrskEVzHRs-JW88A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

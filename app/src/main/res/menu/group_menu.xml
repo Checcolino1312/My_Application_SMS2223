@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/membersGroupMenuButton"
+        android:title="tit"
+        android:color="@color/ardesia_light"/>
+
+    <item
+        android:id="@+id/editGroupMenuButton"
+        android:title="tit"
+        android:color="@android:color/white"/>
+
+    <item
+        android:id="@+id/exitGroupMenuButton"
+        android:title="tit"
+        android:color="@android:color/white"/>
+
+    <item
+        android:id="@+id/advancedGroupMenuButton"
+        android:title="tit"
+        android:color="@android:color/white"/>
+</menu>
