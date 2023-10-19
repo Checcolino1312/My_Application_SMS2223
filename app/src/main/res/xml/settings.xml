@@ -2,12 +2,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
         android:key="account"
-        android:title="account">
+        android:title="@string/account">
         <Preference
             android:key="logout"
-            android:title="logout" />
+            android:title="@string/logout" />
     </PreferenceCategory>
-
+<!--
     <PreferenceCategory
         android:key="general"
         android:title="general">
@@ -22,6 +22,6 @@
             android:summary="desc"
             android:title="descr" />
     </PreferenceCategory>
-
+-->
 
 </PreferenceScreen>

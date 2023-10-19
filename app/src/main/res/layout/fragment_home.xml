@@ -47,4 +47,15 @@
         app:layout_constraintTop_toBottomOf="@id/reportanimal"
         tools:layout_editor_absoluteX="117dp" />
 
+    <Button
+        android:id="@+id/addPetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_pet"
+        app:flow_horizontalAlign="center"
+        app:layout_constraintTop_toBottomOf="@+id/lookingforahouse"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="501dp"
+        tools:ignore="MissingConstraints"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,7 @@
             android:layout_alignParentStart="true"
             app:layout_scrollFlags="scroll|enterAlways"
             android:background="@color/blue_ardesia"
-            app:title="title"
+            app:title="@string/settings"
             app:titleTextColor="@android:color/white"
             app:navigationIcon="?attr/homeAsUpIndicator"
             />

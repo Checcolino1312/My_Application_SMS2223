@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -41,6 +42,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.common.api.Result;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -62,14 +64,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.IOException;
+
 public class ProfileFragment extends Fragment {
 
+
     private static final int RC_SIGN_IN = 9001;
+    private static final int settingsApp = R.id.settingsApp;
     public static final int LOGOUT_ID = 107;
     public final int RESULT_LOAD_IMAGE=21;
     public final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 11;
@@ -100,6 +108,7 @@ public class ProfileFragment extends Fragment {
     private DatabaseReference databaseTokenReference;
     private StorageReference storageReference;
     private Uri filePath;
+    private MenuItem item;
 
 
     @Override
@@ -110,41 +119,41 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        MenuInflater menuInflater = ((MainActivity)getActivity()).getMenuInflater();
+        MenuInflater menuInflater = getActivity().getMenuInflater();
         if(isLogged) {
             this.menu = menu;
             menuInflater.inflate(R.menu.settings_menu, menu);
         }
     }
 
-    @SuppressLint("NonConstantResourceId")
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-               mAuth.signOut();
+      int id = item.getItemId();
 
+        //mAuth.signOut();
+        if (id == R.id.settingsApp) {
+            Intent intent = new Intent(getActivity(), SettingsActivity.class);
+            startActivityForResult(intent, LOGOUT_ID);
+        } else if (id == R.id.modifyProfileButton) {
+            menu.findItem(R.id.modifyProfileButton).setVisible(false);
+            nameProfileTextInputEditText = root.findViewById(R.id.nameProfileEditText);
+            surnameProfileEditText = root.findViewById(R.id.surnameProfileEditText);
+            emailProfileEditText = root.findViewById(R.id.emailProfileEditText);
+            modifyProfileMaterialButton = root.findViewById(R.id.modifyPasswordMaterialButton);
+            saveModifyProfileMaterialButton = root.findViewById(R.id.saveModifyProfileMaterialButton);
 
-           /*case R.id.modifyProfileButtons:
-               menu.findItem(R.id.modifyProfileButtons).setVisible(false);
-               nameProfileTextInputEditText = root.findViewById(R.id.nameProfileEditText);
-               surnameProfileEditText = root.findViewById(R.id.surnameProfileEditText);
-               emailProfileEditText = root.findViewById(R.id.emailProfileEditText);
-               modifyProfileMaterialButton = root.findViewById(R.id.modifyPasswordMaterialButton);
-               saveModifyProfileMaterialButton = root.findViewById(R.id.saveModifyProfileMaterialButton);
+            modifyprofileImageView = root.findViewById(R.id.modifyeProfilemageView);
+            profileImagevView = root.findViewById(R.id.profileImageView);
 
-               modifyprofileImageView = root.findViewById(R.id.modifyeProfilemageView);
-               profileImagevView = root.findViewById(R.id.profileImageView);
+            nameProfileTextInputEditText.setEnabled(true);
+            surnameProfileEditText.setEnabled(true);
+            emailProfileEditText.setEnabled(false);
 
-               nameProfileTextInputEditText.setEnabled(true);
-               surnameProfileEditText.setEnabled(true);
-               emailProfileEditText.setEnabled(false);
-
-               modifyProfileMaterialButton.setVisibility(View.GONE);
-               saveModifyProfileMaterialButton.setVisibility(View.VISIBLE);
-    break;
-
-            */
-
+            modifyProfileMaterialButton.setVisibility(View.GONE);
+            saveModifyProfileMaterialButton.setVisibility(View.VISIBLE);
+        }
 
         return true;
     }
@@ -152,7 +161,7 @@ public class ProfileFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         // [START config_signin]
-        // Configure Google Sign In
+        // Configure Google Sign In (non riesco ad implementarla se avremo tempo lo farò)
       /*  GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -254,42 +263,6 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-     /*   lostPasswordText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity());
-                View resetView = getLayoutInflater().inflate(R.layout.dialog_reset_password, null);
-                final TextInputEditText emailTextInputEditText = resetView.findViewById(R.id.emailResetPasswordEditText);
-
-                builder.setView(resetView);
-                builder.setTitle(R.string.dialog_email_message);
-                builder.setPositiveButton(R.string.dialog_send_email, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if(emailTextInputEditText.getText().toString().isEmpty()){
-                            Toast.makeText(getActivity(), R.string.msg_error_reset_password,
-                                    Toast.LENGTH_SHORT).show();
-                        }else {
-                            String email = emailTextInputEditText.getText().toString();
-                            passwordReset(email);
-                        }
-
-                    }
-                });
-
-
-                builder.setNegativeButton(R.string.dialog_cancel_email, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-                builder.create();
-                builder.show();
-            }
-        });
-*/
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -377,13 +350,13 @@ public class ProfileFragment extends Fragment {
                     String filePath = user.getPicture();
                     Log.i(TAG, "file path = " + filePath);
 
-               /* if (filePath != null) {
+                if (filePath != null) {
                     profileImagevView.setPadding(9, 9, 9, 9);
                     Picasso.get().load(filePath).fit().centerInside()
                             .transform(new CircleTrasformation()).into(profileImagevView);
                 }
 
-                */
+
 
                 }catch(NullPointerException e) {
                 Log.w("test",e.toString());
@@ -407,7 +380,7 @@ public class ProfileFragment extends Fragment {
                 MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getActivity());
 
                 // Set a title for alert dialog
-                builder.setTitle("modifica");
+                builder.setTitle(R.string.modificaFoto);
 
                 // Ask the final question
                 builder.setMessage(getString(R.string.app_name));
@@ -439,7 +412,7 @@ public class ProfileFragment extends Fragment {
         });
 
 
-       /* modifyPasswordMaterialButton.setOnClickListener(new View.OnClickListener() {
+        modifyPasswordMaterialButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                // Intent intentModifyPassword = new Intent(getActivity(), ChangePasswordActivity.class);
@@ -447,7 +420,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        */
+
 
 
         saveModifyProfileMaterialButton.setOnClickListener(new MaterialButton.OnClickListener(){
@@ -524,7 +497,7 @@ public class ProfileFragment extends Fragment {
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        Toast.makeText(getActivity(),"ok",Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getActivity(),getString(R.string.references_db),Toast.LENGTH_LONG).show();
                                        ref.getDownloadUrl();
                                     }
 
@@ -552,18 +525,18 @@ public class ProfileFragment extends Fragment {
     public void checkPermissionReadExternalStorage() {
 
         if (ContextCompat.checkSelfPermission(getContext(),
-                Manifest.permission.READ_EXTERNAL_STORAGE)
+                Manifest.permission.READ_MEDIA_IMAGES)
                 != PackageManager.PERMISSION_GRANTED) {
 
             // Permission is not granted
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
-                    Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                    Manifest.permission.READ_MEDIA_IMAGES)) {
                 ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
             } else {
                 // No explanation needed; request the permission
                 ActivityCompat.requestPermissions(getActivity(),
-                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        new String[]{Manifest.permission.READ_MEDIA_IMAGES},
                         MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
 
                 // MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE is an
@@ -598,7 +571,7 @@ public class ProfileFragment extends Fragment {
                 if(resultCode == RESULT_OK && null != data){
                     filePath = data.getData();
                     profileImagevView.setPadding(9,9,9,9);
-/*
+
                     try {
                         File file = File.createTempFile(mAuth.getUid(),"jpg");
                         storageReference.getFile(file)
@@ -620,12 +593,12 @@ public class ProfileFragment extends Fragment {
                         e.printStackTrace();
                     }
 
- */
-                 /*   Picasso.get().load(filePath).fit().centerInside()
+
+                    Picasso.get().load(filePath).fit().centerInside()
                      .transform(new CircleTrasformation()).into(profileImagevView);
                     Log.i (TAG, "percorso preso");
 
-                  */
+
                     fileUpdater();
 
                 }

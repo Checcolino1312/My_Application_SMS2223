@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <!--
+
     <item
-        android:id="@+id/modifyProfileButtons"
+        android:id="@+id/modifyProfileButton"
         android:orderInCategory="100"
         android:icon="@drawable/edit"
-        android:title="tit"
+        android:title="@string/title_modify_profile"
         app:showAsAction="always" />
--->
+
     <item
-        android:id="@+id/settingss"
+        android:id="@+id/settingsApp"
         android:orderInCategory="100"
         android:icon="@drawable/settings"
         android:title="tit"

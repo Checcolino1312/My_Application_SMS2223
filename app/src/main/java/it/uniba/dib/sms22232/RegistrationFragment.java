@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,8 +51,10 @@ public class RegistrationFragment extends Fragment {
     private FirebaseUser firebaseUser;
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
-    private static final String TAG = "managerAppTracker";
+    private static final String TAG = "animalAppTracker";
     private TextInputEditText nameEditText, surnameEditText, emailEditText, passwordEditText, confirmPasswordEditText;
+
+    private Spinner spinnerRole;
     private TextInputLayout name, surname, email, password, confirmPassword;
     private ProgressDialog progressDialog;
     private View v;
@@ -122,6 +125,7 @@ $                 # end-of-string*/
         emailEditText = v.findViewById(R.id.registrationEmailEditText);
         passwordEditText = v.findViewById(R.id.registrationPasswordEditText);
         confirmPasswordEditText = v.findViewById(R.id.registrationConfirmPasswordEditText);
+        spinnerRole = v.findViewById(R.id.spinnerRule);
 
         TextView policyConfirmTextView = v.findViewById(R.id.policyConfirmTextView);
         String first = v.getResources().getString(R.string.msg_accept_privacy1);
@@ -192,7 +196,8 @@ $                 # end-of-string*/
                 createAccount(nameEditText.getText().toString(),
                         surnameEditText.getText().toString(),
                         emailEditText.getText().toString(),
-                        passwordEditText.getText().toString());
+                        passwordEditText.getText().toString(),
+                        spinnerRole.getSelectedItem().toString());
 
 
         });
@@ -200,7 +205,7 @@ $                 # end-of-string*/
         return v;
     }
 
-    private void createAccount(String name, String surname, String email, String password)
+    private void createAccount(String name, String surname, String email, String password, String spinnerRole)
     {
         Log.d(TAG, "createAccount:" + email);
         /*if (!validateForm()) {
@@ -213,6 +218,7 @@ $                 # end-of-string*/
         final String nameAccount = name;
         final String surnameAccount = surname;
         final String emailAccount = email;
+        final String spinnerRoleAccount = spinnerRole;
 
 
         auth.createUserWithEmailAndPassword(email,password)
@@ -223,7 +229,7 @@ $                 # end-of-string*/
                         firebaseUser = auth.getCurrentUser();
                         //Scrittura del nome e cognome,
                         // successivamente email e password che concretizzano la regitrazione
-                        writeNameSurname(auth.getUid(), nameAccount, surnameAccount,emailAccount);
+                        writeNameSurname(auth.getUid(), nameAccount, surnameAccount,emailAccount, spinnerRoleAccount);
                     }  else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "createUserWithEmail:failure", task.getException());
@@ -244,7 +250,7 @@ $                 # end-of-string*/
     }
 
     private void writeNameSurname (final String key, final String name,
-                                   final String surname,final String email){
+                                   final String surname,final String email, final String role){
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -254,6 +260,7 @@ $                 # end-of-string*/
                 databaseReference.child("name").setValue(name);
                 databaseReference.child("surname").setValue(surname);
                 databaseReference.child("email").setValue(email);
+                databaseReference.child("role").setValue(role);
 
                 if(!firebaseUser.isEmailVerified()) {
                     sendEmailVerification();

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -72,6 +73,8 @@ public class HomeFragment extends Fragment {
 
     private ImageView animalImageView;
     private SwipeRefreshLayout homeSwipeRefresh;
+
+    private Button addPetButton;
     private View root;
 
    
@@ -122,7 +125,7 @@ public class HomeFragment extends Fragment {
                 Intent intent = Intent.makeMainSelectorActivity(
                         Intent.ACTION_MAIN,
                         Intent.CATEGORY_APP_EMAIL);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);       //la posta elettronica viene aperta separatamente rispetto all'app Balance Out
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); //la posta elettronica viene aperta separatamente
                 startActivity(intent);
             }
         });
@@ -135,9 +138,7 @@ public class HomeFragment extends Fragment {
                 .addOnCompleteListener(getActivity(), new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        // [START_EXCLUDE]
-                        // Re-enable button
-                        //findViewById(R.id.verifyEmailButton).setEnabled(true);
+
 
                         if (task.isSuccessful()) {
                             Toast.makeText(getActivity(),
@@ -149,10 +150,8 @@ public class HomeFragment extends Fragment {
                                     getString(R.string.failed_verification_email),
                                     Toast.LENGTH_SHORT).show();
                         }
-                        // [END_EXCLUDE]
                     }
                 });
-        // [END send_email_verification]
     }
 
 
@@ -166,8 +165,18 @@ public class HomeFragment extends Fragment {
         if (isLogged )
         {
             i = 0;
-           // setProgressDialog();
-           // mProgress.show();
+
+            addPetButton.setVisibility(View.VISIBLE);
+
+            addPetButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent addPet = new Intent(getActivity(), NewPetActivity.class);
+                    startActivity(addPet);
+
+                }
+            });
+
         }
 
 
@@ -176,58 +185,17 @@ public class HomeFragment extends Fragment {
 
     private void inizializeViews(View root) {
 
+        addPetButton = root.findViewById(R.id.addPetButton);
+        addPetButton.setVisibility(View.GONE);//nasconde il bottone mi serve per non renderlo visibile a tutte le pagine
 
-
-        /* animazioni per l'espansione del bottone per aggiungere i gruppi */
-        /*fab_close = AnimationUtils.loadAnimation(getContext(), R.anim.fab_close);
-        fab_open = AnimationUtils.loadAnimation(getContext(), R.anim.fab_open);
-        fab_clock = AnimationUtils.loadAnimation(getContext(), R.anim.fab_rotate_clock);
-        fab_anticlock = AnimationUtils.loadAnimation(getContext(), R.anim.fab_rotate_anticlock);
-        text_fab_open = AnimationUtils.loadAnimation(getContext(), R.anim.text_fab_open);
-        text_fab_close = AnimationUtils.loadAnimation(getContext(), R.anim.text_fab_close);
-
-         */
-    }
-/*
-    private void newExpenseHomeFabClicked() {
-
-        newExpenseHomeFab.setOnClickListener(new FloatingActionButton.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (myGroups.size() == 0) {
-                    //se non ci sono gruppi non fa aggiungere spese
-                    Snackbar.make(root.findViewById(R.id.statusDebitCard),
-                            getString(R.string.title_error_new_expense_no_groups), Snackbar.LENGTH_LONG).show();
-                } else {
-                    Intent newExpense = new Intent(getActivity(), NewCommentActivity.class);
-                    startActivity(newExpense);
-                }
-            }
-        });
     }
 
-    private void createGroupFabClicked() {
-        createGroupFab.setOnClickListener(new FloatingActionButton.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent newGroup = new Intent(getActivity(), NewGroupActivity.class);
-                startActivityForResult(newGroup, MainActivity.GROUP_CREATED);
-            }
-        });
-    }
-*/
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
 
     }
-
-
-
-
-
-
 
     private void dismissProgress() {
         if (mProgress != null && mProgress.isShowing()) {
