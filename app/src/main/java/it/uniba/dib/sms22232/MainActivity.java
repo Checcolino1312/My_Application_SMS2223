@@ -12,6 +12,8 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.Room;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -91,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
+
+
     }
 
     @Override
@@ -103,6 +107,8 @@ public class MainActivity extends AppCompatActivity {
 
             switch (resultCode){
                 case START_HOME:
+                    View viewHome = navView.findViewById(R.id.navigation_home);
+                    viewHome.performClick();
                     break;
                 case START_ACTIVITY:
                     View viewActivity = navView.findViewById(R.id.navigation_activity);

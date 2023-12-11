@@ -87,7 +87,7 @@ public class HomeFragment extends Fragment {
         /* vengono mostrati 2 layout diversi a seconda se l'utente ha verificato l'account tramite mail o no*/
         final View root;
         if (!isLogged) {
-            root = homeFragment(inflater, container);
+            root = profileFragment(inflater, container);
         } else {
             if (isEmailVerified) {
                 root = homeFragment(inflater, container);
@@ -179,6 +179,14 @@ public class HomeFragment extends Fragment {
 
         }
 
+
+        return root;
+    }
+
+
+    private View profileFragment(LayoutInflater inflater, final ViewGroup container){
+        root = inflater.inflate(R.layout.fragment_login, container, false);
+        /* vengono inizializzate tutte le view nel fragment*/
 
         return root;
     }
