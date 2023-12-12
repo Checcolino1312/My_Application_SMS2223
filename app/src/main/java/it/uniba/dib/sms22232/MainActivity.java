@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
