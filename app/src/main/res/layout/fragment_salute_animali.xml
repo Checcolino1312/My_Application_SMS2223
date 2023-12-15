@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="#F8D89D"
+    tools:context=".Fragment.SaluteAnimaliFragment">
+
+    <TextView
+        android:id="@+id/elencoCure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/coustard"
+        android:hint="@string/elencoCure"
+        android:padding="14dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/colorSecondaryVariant"
+
+        android:textSize="28dp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_cure_animali"
+        android:padding="10dp"
+        android:layout_alignBaseline="@+id/elencoCure"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/aggiungiCura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:text="@string/aggiungiCura" />
+</RelativeLayout>

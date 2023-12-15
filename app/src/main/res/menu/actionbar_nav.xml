@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/actionbar"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Activity.HomeActivity">
+    <item
+        android:id="@+id/logout"
+        android:title="logout"
+        android:icon="@drawable/ic_baseline_logout_24"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/profile"
+        android:title="profile"
+        android:icon="@drawable/ic_profile"
+        app:showAsAction="ifRoom" />
+
+</menu>

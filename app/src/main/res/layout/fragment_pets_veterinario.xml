@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F8D89D"
+    tools:context=".Fragment.HomeVeterinarioFragment">
+
+
+    <TextView
+        android:id="@+id/animaliInStallo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/coustard"
+        android:hint="@string/animaliInStallo"
+        android:padding="14dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/colorSecondaryVariant"
+        android:textSize="28dp" />
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_pet_stallo"
+        android:paddingTop="28dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:layout_alignBaseline="@+id/animaliInStallo"
+        android:backgroundTint="#00FFFFFF" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_Qr_Code_NewStallo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#65503F"
+        android:contentDescription="@string/nuovaSegnalazione"
+        app:srcCompat="@mipmap/baseline_qr_code_scanner_black_24"
+        />
+
+
+</RelativeLayout>

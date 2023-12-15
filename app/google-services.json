@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1098836157656",
+    "firebase_url": "https://ioandroid-57364-default-rtdb.firebaseio.com",
+    "project_id": "ioandroid-57364",
+    "storage_bucket": "ioandroid-57364.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098836157656:android:c97b5e5442e655f3bf23ad",
+        "android_client_info": {
+          "package_name": "com.example.animalapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjX4YiyVe1XOu3kmLDRJxQrJsZTdz5iKE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

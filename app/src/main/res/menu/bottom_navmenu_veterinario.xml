@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeVet"
+        android:icon="@drawable/icon_segnalazioni"
+        android:title="@string/homeVet" />
+
+    <item
+        android:id="@+id/inCaricoVet"
+        android:icon="@drawable/icon_star"
+        android:title="@string/inCaricoVet" />
+
+    <item
+        android:id="@+id/petsVet"
+        android:icon="@drawable/stallo"
+        android:title="@string/petsVet" />
+
+    <item
+        android:id="@+id/profileVet"
+        android:icon="@drawable/a"
+        android:title="@string/profileVet" />
+</menu>

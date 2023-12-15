@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/user_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/image_profile"
+        android:layout_width="39dp"
+        android:layout_height="41dp"
+        app:srcCompat="@drawable/ic_profile"
+        android:contentDescription="@string/image" />
+
+
+    <TextView
+        android:id="@+id/nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/image_profile"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="3dp"
+        android:maxLines="1"
+        android:text="@string/Username"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/specie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nome"
+        android:layout_alignBottom="@+id/image_profile"
+        android:layout_marginStart="55dp"
+        android:layout_marginBottom="-5dp"
+        android:maxLines="1"
+        android:text="@string/FullName" />
+
+    <Button
+        android:id="@+id/btn_follow"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:textColor="@color/white"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"/>
+
+</RelativeLayout>

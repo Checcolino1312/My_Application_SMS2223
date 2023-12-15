@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.QrcodeScanFragment">
+
+
+
+
+    <com.budiyev.android.codescanner.CodeScannerView
+        android:id="@+id/scanner_animal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:autoFocusButtonColor="#FFFFFF"
+        app:autoFocusButtonVisible="true"
+        app:flashButtonColor="#FFFFFF"
+        app:flashButtonVisible="true"
+        app:frameColor="#FFFFFF"
+        app:frameCornersSize="50dp"
+        app:frameCornersRadius="0dp"
+        app:frameAspectRatioWidth="1"
+        app:frameAspectRatioHeight="1"
+        app:frameThickness="2dp"
+        app:maskColor="#F8D89D"
+        />
+
+
+</FrameLayout>

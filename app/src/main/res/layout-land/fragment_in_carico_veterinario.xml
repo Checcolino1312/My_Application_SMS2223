@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.InCaricoVeterinarioFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/elencospese"
+        android:padding="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="28dp"
+        android:fontFamily="@font/coustard"
+        android:textAlignment="center"
+        android:hint="@string/segnalazioni_prese_in_carico"
+        android:textColorHint="@color/colorSecondaryVariant" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_incarico"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/elencospese"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF" />
+
+</LinearLayout>

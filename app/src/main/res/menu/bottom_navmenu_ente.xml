@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeEnte"
+        android:icon="@drawable/icon_segnalazioni"
+        android:title="@string/homeEnte" />
+
+    <item
+        android:id="@+id/inCarico"
+        android:icon="@drawable/icon_star"
+        android:title="@string/inCarico" />
+
+    <item
+        android:id="@+id/petsEnte"
+        android:icon="@drawable/stallo"
+        android:title="@string/petsEnte" />
+
+    <item
+        android:id="@+id/profileEnte"
+        android:icon="@drawable/a"
+        android:title="@string/profileEnte" />
+</menu>

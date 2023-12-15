@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F8D89D"
+    tools:context=".Fragment.NuovaSegnalazioneFragment">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/img_segnalazione"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btn_nuava_foto_segnalazione"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="152dp"
+                android:layout_marginEnd="104dp"
+                android:backgroundTint="#FFFFFF"
+                android:contentDescription="@string/nuovaSegnalazione"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_camera" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Spinner
+            android:id="@+id/spinner_tipologia"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:autofillHints="Tipo Segnalazione"
+            android:background="#90F5EBE6"
+            android:backgroundTint="#90F5EBE6"
+            android:contentDescription="@string/Tipologia"
+            android:overlapAnchor="false"
+            android:spinnerMode="dropdown"
+            android:entries="@array/spinner_segnalazione"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:hintTextColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+
+            <EditText
+                android:id="@+id/txt_descrizione"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="0dp"
+                android:inputType="textLongMessage"
+                android:backgroundTint="#90F5EBE6"
+                android:hint="@string/descrizione"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/txt_posizione"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="10dp"
+                android:autofillHints=""
+                android:background="#90F5EBE6"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:text="@string/posizione"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+        <Button
+            android:id="@+id/btn_check_position"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="#5A4737"
+            android:clickable="true"
+            android:text="@string/btn_check_position"
+            android:textColor="#FDF9F4" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/destinatari"
+            android:layout_gravity="center"
+            android:layout_marginBottom="6dp"
+            android:textSize="18dp"
+            />
+
+        <LinearLayout
+            android:id="@+id/segnalazione_checkboxes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+
+
+            <CheckBox
+                android:id="@+id/checkbox_veterinario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/veterinario" />
+
+            <CheckBox
+                android:id="@+id/checkbox_ente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/ente" />
+
+            <CheckBox
+                android:id="@+id/checkbox_utentetradizionale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/utente" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_invia_nuova_segnalazione"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="#5A4737"
+            android:clickable="true"
+            android:text="@string/invia_segnalazione"
+            android:textColor="#FDF9F4" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

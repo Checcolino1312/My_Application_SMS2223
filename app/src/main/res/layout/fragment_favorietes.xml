@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.SearchFragment">
+    <FrameLayout
+        android:id="@+id/fragment_container_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F8D89D">
+
+
+            <TextView
+                android:id="@+id/animalipreferiti"
+                android:padding="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               android:textSize="28dp"
+                android:fontFamily="@font/coustard"
+                android:textAlignment="center"
+                android:hint="@string/i_miei_animali_preferiti"
+                android:textColorHint="@color/colorSecondaryVariant" />
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/elencopref"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bar"
+            android:background="#00FFFFFF"
+            android:backgroundTint="#00FFFFFF"
+            android:numColumns="2"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+</RelativeLayout>

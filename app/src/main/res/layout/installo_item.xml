@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:elevation="20dp"
+    app:cardUseCompatPadding="true"
+
+    >
+
+
+    <RelativeLayout
+        android:id="@+id/installo_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ABF8D89D"
+        android:padding="8dp">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_launcher"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp"
+            android:contentDescription="@string/immagine" />
+
+        <TextView
+            android:id="@+id/nome_animale_item"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/img2"
+            android:text="@string/nomeanimal"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/specie_animale_item"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nome_animale_item"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/img2"
+            android:text="@string/specie"
+            android:textColor="#000"
+            android:textSize="18sp" />
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/btn_cancella_stallo"
+        android:layout_width="50dp"
+        android:layout_height="54dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="7dp"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+        android:drawableTop="@drawable/ic_baseline_delete_forever2_24"
+        android:textSize="12sp" />
+
+</FrameLayout>
+
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

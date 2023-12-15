@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <item
+        android:id="@+id/segnalazioni"
+        android:icon="@drawable/icon_segnalazioni"
+        android:title="@string/segnalazioni" />
+    <item
+        android:id="@+id/incarico_utente"
+        android:icon="@drawable/icon_star"
+        android:title="@string/inCarico" />
+    <item
+        android:id="@+id/ic_search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/ic_search" />
+    <item
+        android:id="@+id/ic_favorites"
+        android:icon="@drawable/ic_favorites"
+        android:title="@string/ic_favorites" />
+    <item
+        android:id="@+id/ic_profile"
+        android:icon="@drawable/a"
+        android:title="@string/ic_profile" />
+
+</menu>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+
+        <TextView
+            android:id="@+id/typeSpesa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/typeSpesa"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/spesaEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/spesa"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/prezzo"
+            android:textSize="20dp"/>
+
+        <EditText
+            android:id="@+id/prezzoEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Prezzo"
+            android:inputType="numberDecimal"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/calendarViewSpesa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:hint="@string/calendarViewSpesa" />
+
+
+</LinearLayout>
